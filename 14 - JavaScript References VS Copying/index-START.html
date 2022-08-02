@@ -8,29 +8,53 @@
 
   <script>
     // start with strings, numbers and booleans
+    let a = 100;
+    let b = a;
+    console.log(a, b);
+    a = 200;
+    console.log(a, b);
+
+    let c = [0,1];
+    let d;
+
+    d = c;
+    ++d[0];
+    console.log(c);
+    console.log(d);
+
 
     // Let's say we have an array
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 
     // and we want to make a copy of it.
-
     // You might think we can just do something like this:
+    let team = players
 
     // however what happens when we update that array?
+    // team[3] = "Yeah";
 
     // now here is the problem!
-
     // oh no - we have edited the original array too!
-
     // Why? It's because that is an array reference, not an array copy. They both point to the same array!
-
     // So, how do we fix this? We take a copy instead!
 
     // one way
 
+
     // or create a new array and concat the old one in
+    let team2 = players.slice();
+    team2[3] = "aaaaa";
 
     // or use the new ES6 Spread
+    let team3 = [...players];
+    team3[3] = "bbbb"
+
+    let team4 = Array.from(players);
+    team4[3] = "ccc";
+
+    console.log(players);
+    console.log(team4);
+
 
     // now when we update it, the original one isn't changed
 
@@ -43,8 +67,15 @@
     };
 
     // and think we make a copy:
+    console.clear();
+    const dev = person;
+    // dev.name = "me";
 
     // how do we take a copy instead?
+    const dev2 = Object.assign({}, person, {name: 'shingo', age:28})
+
+    console.log(person);
+    console.log(dev2);
 
     // We will hopefully soon see the object ...spread
 
